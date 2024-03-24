@@ -12,9 +12,9 @@ function ReadFile() {
     }
 
     return (
-        <div className="read-file">
+        <div>
             <h1>Upload txt file</h1>
-            <input type="file" onChange={(e) => textFromFile(e.target.files[0])}/>
+            <input type="file" style={{width: '300px'}} onChange={(e) => textFromFile(e.target.files[0])}/>
             <button onClick={() => navigate('/output')}>Show output</button>
         </div>
     )
