@@ -7,4 +7,4 @@ Complexity of my solution is represented by following factors:
 
 - 2 functional components within the App component
 - ReadFile component: 19 lines of code, 1 import, 5 functions/methods, 3 conditions, max nesting depth 1
-- Output component: 39 lines of code, 2 imports, 17 functions/methods, 2 loops, 8 conditions, max nesting depth 4
+- Output component: 44 lines of code, 2 imports, 18 functions/methods, 3 loops, 9 conditions, max nesting depth 4

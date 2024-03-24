@@ -3,8 +3,7 @@ import { useState, useEffect } from "react";
 function Output() {
     const [text, setText] = useState("No file uploaded");
 
-    useEffect(() => {
-        const savedText = localStorage.getItem('text'); // text from the last uploaded txt file
+    const removeComments = (savedText) => {
         let i = 0;
         let newText = '';
         while (i < savedText.length) {
@@ -30,6 +29,13 @@ function Output() {
             i++;
         }
         setText(newText);
+    }
+
+    useEffect(() => {
+        const savedText = localStorage.getItem('text'); // text from the last uploaded txt file
+        if (savedText) {
+            removeComments(savedText)
+        }
     }, [])
 
     return (
