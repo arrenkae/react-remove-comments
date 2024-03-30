@@ -9,24 +9,23 @@ function Output() {
         while (i < savedText.length) {
             if (savedText.charAt(i) == '/' && savedText.charAt(i+1) == '/') {
                 i += savedText.slice(i).indexOf('\n');
-                while (savedText.charAt(i+1) == '\n') { // removes extra line breaks after removing comments
-                    i++;
-                }
-                // skips indexes between opening and closing tags
+                newText += '\n';
+                i++;
             } else if (savedText.charAt(i) == '/' && savedText.charAt(i+1) == '*') {
-                if (savedText.slice(i).includes('*/')) {
-                    i += savedText.slice(i).indexOf('*/') + 1;
-                    while (savedText.charAt(i+1) == ' ' || savedText.charAt(i+1) == '\n') { // removes spaces at the beginning of the line and extra line breaks after removing comments
+                if (savedText.slice(i+2).includes('*/')) {
+                    i += savedText.slice(i+2).indexOf('*/') + 3;
+                    do {
                         i++;
-                    } 
+                    } while (savedText.charAt(i) == ' ' || savedText.charAt(i) == '\n')
+                    // removes spaces at the beginning of the line and extra line breaks after removing comments
                 } else {
                     i = savedText.length;
                     // if there is no closing tag, treats everyting after opening as a comment and skips right to the end
                 }
             } else {
                 newText += savedText.charAt(i);
+                i++;
             }
-            i++;
         }
         setText(newText);
     }
